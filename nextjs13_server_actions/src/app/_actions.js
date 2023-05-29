@@ -1,6 +1,6 @@
 "use server"
 
-import { createTodo } from "@/lib/todos"
+import { createTodo, updateTodo } from "@/lib/todos"
 import { revalidatePath } from "next/cache";
 
 export async function createTodoAction(title){
@@ -11,4 +11,9 @@ export async function createTodoAction(title){
     } catch (error) {
         return(error)
     }
+}
+
+export async function updateTodoAction(id, isCompleted){
+    await updateTodo(id, isCompleted)
+    revalidatePath('/');
 }

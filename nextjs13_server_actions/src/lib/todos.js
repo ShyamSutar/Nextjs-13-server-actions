@@ -18,3 +18,12 @@ export async function createTodo(title){
         return(error)
     }
 }
+
+export async function updateTodo(id, isCompleted){
+    try {
+        const tddo = await prisma.Todo.update({where:{id}, data:{isCompleted}})
+        return (todo)
+    } catch (error) {
+        return(error)
+    }
+}
