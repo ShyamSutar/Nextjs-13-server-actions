@@ -27,3 +27,16 @@ export async function updateTodo(id, isCompleted){
         return(error)
     }
 }
+
+export async function deleteTodo(id){
+    try {
+        const todo = await prisma.Todo.delete({
+            where: {
+              id: id,
+            },
+          })
+        return (todo)
+    } catch (error) {
+        return(error)
+    }
+}

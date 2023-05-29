@@ -1,6 +1,7 @@
 'use client'
 import React, { useTransition } from 'react'
-import { updateTodoAction } from '../_actions';
+import loading from '../loading';
+import { deleteTodoAction, updateTodoAction } from '../_actions';
 
 const TodoItem = ({todo}) => {
 
@@ -16,6 +17,7 @@ const TodoItem = ({todo}) => {
 
           <label htmlFor="todo.id" className='cursor-pointer peer-checked:text-slate-500 peer-checked:line-through'>{todo.title} </label>
           <span className='ml-auto text-sm text-slate-500 peer-checked:line-through'>{todo.updatedAt.toUTCString()}</span>
+          <span className='text-red-500 cursor-pointer' onClick={(e)=>startTransition(()=>deleteTodoAction(todo.id))}>delete</span>
 
         </li>
     </div>
