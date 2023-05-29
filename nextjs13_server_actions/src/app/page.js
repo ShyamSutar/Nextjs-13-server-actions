@@ -4,7 +4,8 @@ import TodoItem from "./components/TodoItem"
 
 export default async function Home() {
 
-  const {todos} = await getTodos()
+  const todos = await getTodos()
+  console.log(todos + " ye hai");
 
   return (
     <>
@@ -18,7 +19,7 @@ export default async function Home() {
           <h2 className="text-xl font-bold">Previous todos:</h2>
 
           <ul>
-            {todos?.map(todo => (
+            {todos.map(todo => (
               <TodoItem key={todo.id} todo={todo}>{todo.title}</TodoItem>
             ))}
           </ul>

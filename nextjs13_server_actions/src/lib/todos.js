@@ -2,7 +2,7 @@ import prisma from "./prisma";
 
 export async function getTodos(){
     try {
-        const todos = await prisma.todo.findMany()
+        const todos = await prisma.Todo.findMany();
         return (todos)
     } catch (error) {
 
